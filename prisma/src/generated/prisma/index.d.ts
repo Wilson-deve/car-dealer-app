@@ -2377,7 +2377,7 @@ export namespace Prisma {
     price: number
     makeId: number
     modelId: number
-    modelVariantId: number
+    modelVariantId: number | null
     ulezCompliance: $Enums.ULEZCompliance
     transmission: $Enums.Transmission
     colour: $Enums.Colour
@@ -2572,7 +2572,7 @@ export namespace Prisma {
       price: number
       makeId: number
       modelId: number
-      modelVariantId: number
+      modelVariantId: number | null
       ulezCompliance: $Enums.ULEZCompliance
       transmission: $Enums.Transmission
       colour: $Enums.Colour
@@ -13965,7 +13965,7 @@ export namespace Prisma {
     price?: IntFilter<"Classified"> | number | $Types.Skip
     makeId?: IntFilter<"Classified"> | number | $Types.Skip
     modelId?: IntFilter<"Classified"> | number | $Types.Skip
-    modelVariantId?: IntFilter<"Classified"> | number | $Types.Skip
+    modelVariantId?: IntNullableFilter<"Classified"> | number | null | $Types.Skip
     ulezCompliance?: EnumULEZComplianceFilter<"Classified"> | $Enums.ULEZCompliance | $Types.Skip
     transmission?: EnumTransmissionFilter<"Classified"> | $Enums.Transmission | $Types.Skip
     colour?: EnumColourFilter<"Classified"> | $Enums.Colour | $Types.Skip
@@ -13997,7 +13997,7 @@ export namespace Prisma {
     price?: SortOrder | $Types.Skip
     makeId?: SortOrder | $Types.Skip
     modelId?: SortOrder | $Types.Skip
-    modelVariantId?: SortOrder | $Types.Skip
+    modelVariantId?: SortOrderInput | SortOrder | $Types.Skip
     ulezCompliance?: SortOrder | $Types.Skip
     transmission?: SortOrder | $Types.Skip
     colour?: SortOrder | $Types.Skip
@@ -14032,7 +14032,7 @@ export namespace Prisma {
     price?: IntFilter<"Classified"> | number | $Types.Skip
     makeId?: IntFilter<"Classified"> | number | $Types.Skip
     modelId?: IntFilter<"Classified"> | number | $Types.Skip
-    modelVariantId?: IntFilter<"Classified"> | number | $Types.Skip
+    modelVariantId?: IntNullableFilter<"Classified"> | number | null | $Types.Skip
     ulezCompliance?: EnumULEZComplianceFilter<"Classified"> | $Enums.ULEZCompliance | $Types.Skip
     transmission?: EnumTransmissionFilter<"Classified"> | $Enums.Transmission | $Types.Skip
     colour?: EnumColourFilter<"Classified"> | $Enums.Colour | $Types.Skip
@@ -14064,7 +14064,7 @@ export namespace Prisma {
     price?: SortOrder | $Types.Skip
     makeId?: SortOrder | $Types.Skip
     modelId?: SortOrder | $Types.Skip
-    modelVariantId?: SortOrder | $Types.Skip
+    modelVariantId?: SortOrderInput | SortOrder | $Types.Skip
     ulezCompliance?: SortOrder | $Types.Skip
     transmission?: SortOrder | $Types.Skip
     colour?: SortOrder | $Types.Skip
@@ -14099,7 +14099,7 @@ export namespace Prisma {
     price?: IntWithAggregatesFilter<"Classified"> | number | $Types.Skip
     makeId?: IntWithAggregatesFilter<"Classified"> | number | $Types.Skip
     modelId?: IntWithAggregatesFilter<"Classified"> | number | $Types.Skip
-    modelVariantId?: IntWithAggregatesFilter<"Classified"> | number | $Types.Skip
+    modelVariantId?: IntNullableWithAggregatesFilter<"Classified"> | number | null | $Types.Skip
     ulezCompliance?: EnumULEZComplianceWithAggregatesFilter<"Classified"> | $Enums.ULEZCompliance | $Types.Skip
     transmission?: EnumTransmissionWithAggregatesFilter<"Classified"> | $Enums.Transmission | $Types.Skip
     colour?: EnumColourWithAggregatesFilter<"Classified"> | $Enums.Colour | $Types.Skip
@@ -14732,7 +14732,7 @@ export namespace Prisma {
     price?: number | $Types.Skip
     makeId: number
     modelId: number
-    modelVariantId: number
+    modelVariantId?: number | null | $Types.Skip
     ulezCompliance?: $Enums.ULEZCompliance | $Types.Skip
     transmission?: $Enums.Transmission | $Types.Skip
     colour?: $Enums.Colour | $Types.Skip
@@ -14789,7 +14789,7 @@ export namespace Prisma {
     price?: IntFieldUpdateOperationsInput | number | $Types.Skip
     makeId?: IntFieldUpdateOperationsInput | number | $Types.Skip
     modelId?: IntFieldUpdateOperationsInput | number | $Types.Skip
-    modelVariantId?: IntFieldUpdateOperationsInput | number | $Types.Skip
+    modelVariantId?: NullableIntFieldUpdateOperationsInput | number | null | $Types.Skip
     ulezCompliance?: EnumULEZComplianceFieldUpdateOperationsInput | $Enums.ULEZCompliance | $Types.Skip
     transmission?: EnumTransmissionFieldUpdateOperationsInput | $Enums.Transmission | $Types.Skip
     colour?: EnumColourFieldUpdateOperationsInput | $Enums.Colour | $Types.Skip
@@ -14818,7 +14818,7 @@ export namespace Prisma {
     price?: number | $Types.Skip
     makeId: number
     modelId: number
-    modelVariantId: number
+    modelVariantId?: number | null | $Types.Skip
     ulezCompliance?: $Enums.ULEZCompliance | $Types.Skip
     transmission?: $Enums.Transmission | $Types.Skip
     colour?: $Enums.Colour | $Types.Skip
@@ -14868,7 +14868,7 @@ export namespace Prisma {
     price?: IntFieldUpdateOperationsInput | number | $Types.Skip
     makeId?: IntFieldUpdateOperationsInput | number | $Types.Skip
     modelId?: IntFieldUpdateOperationsInput | number | $Types.Skip
-    modelVariantId?: IntFieldUpdateOperationsInput | number | $Types.Skip
+    modelVariantId?: NullableIntFieldUpdateOperationsInput | number | null | $Types.Skip
     ulezCompliance?: EnumULEZComplianceFieldUpdateOperationsInput | $Enums.ULEZCompliance | $Types.Skip
     transmission?: EnumTransmissionFieldUpdateOperationsInput | $Enums.Transmission | $Types.Skip
     colour?: EnumColourFieldUpdateOperationsInput | $Enums.Colour | $Types.Skip
@@ -15504,6 +15504,17 @@ export namespace Prisma {
     not?: NestedStringNullableFilter<$PrismaModel> | string | null | $Types.Skip
   }
 
+  export type IntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null | $Types.Skip
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null | $Types.Skip
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null | $Types.Skip
+    lt?: number | IntFieldRefInput<$PrismaModel> | $Types.Skip
+    lte?: number | IntFieldRefInput<$PrismaModel> | $Types.Skip
+    gt?: number | IntFieldRefInput<$PrismaModel> | $Types.Skip
+    gte?: number | IntFieldRefInput<$PrismaModel> | $Types.Skip
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null | $Types.Skip
+  }
+
   export type EnumULEZComplianceFilter<$PrismaModel = never> = {
     equals?: $Enums.ULEZCompliance | EnumULEZComplianceFieldRefInput<$PrismaModel> | $Types.Skip
     in?: $Enums.ULEZCompliance[] | ListEnumULEZComplianceFieldRefInput<$PrismaModel> | $Types.Skip
@@ -15770,6 +15781,22 @@ export namespace Prisma {
     _max?: NestedStringNullableFilter<$PrismaModel> | $Types.Skip
   }
 
+  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null | $Types.Skip
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null | $Types.Skip
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null | $Types.Skip
+    lt?: number | IntFieldRefInput<$PrismaModel> | $Types.Skip
+    lte?: number | IntFieldRefInput<$PrismaModel> | $Types.Skip
+    gt?: number | IntFieldRefInput<$PrismaModel> | $Types.Skip
+    gte?: number | IntFieldRefInput<$PrismaModel> | $Types.Skip
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null | $Types.Skip
+    _count?: NestedIntNullableFilter<$PrismaModel> | $Types.Skip
+    _avg?: NestedFloatNullableFilter<$PrismaModel> | $Types.Skip
+    _sum?: NestedIntNullableFilter<$PrismaModel> | $Types.Skip
+    _min?: NestedIntNullableFilter<$PrismaModel> | $Types.Skip
+    _max?: NestedIntNullableFilter<$PrismaModel> | $Types.Skip
+  }
+
   export type EnumULEZComplianceWithAggregatesFilter<$PrismaModel = never> = {
     equals?: $Enums.ULEZCompliance | EnumULEZComplianceFieldRefInput<$PrismaModel> | $Types.Skip
     in?: $Enums.ULEZCompliance[] | ListEnumULEZComplianceFieldRefInput<$PrismaModel> | $Types.Skip
@@ -15887,17 +15914,6 @@ export namespace Prisma {
     not?: NestedEnumCustomerStatusFilter<$PrismaModel> | $Enums.CustomerStatus | $Types.Skip
   }
 
-  export type IntNullableFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null | $Types.Skip
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null | $Types.Skip
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null | $Types.Skip
-    lt?: number | IntFieldRefInput<$PrismaModel> | $Types.Skip
-    lte?: number | IntFieldRefInput<$PrismaModel> | $Types.Skip
-    gt?: number | IntFieldRefInput<$PrismaModel> | $Types.Skip
-    gte?: number | IntFieldRefInput<$PrismaModel> | $Types.Skip
-    not?: NestedIntNullableFilter<$PrismaModel> | number | null | $Types.Skip
-  }
-
   export type ClassifiedNullableScalarRelationFilter = {
     is?: ClassifiedWhereInput | null | $Types.Skip
     isNot?: ClassifiedWhereInput | null | $Types.Skip
@@ -15995,22 +16011,6 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel> | $Types.Skip
     _min?: NestedEnumCustomerStatusFilter<$PrismaModel> | $Types.Skip
     _max?: NestedEnumCustomerStatusFilter<$PrismaModel> | $Types.Skip
-  }
-
-  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null | $Types.Skip
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null | $Types.Skip
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null | $Types.Skip
-    lt?: number | IntFieldRefInput<$PrismaModel> | $Types.Skip
-    lte?: number | IntFieldRefInput<$PrismaModel> | $Types.Skip
-    gt?: number | IntFieldRefInput<$PrismaModel> | $Types.Skip
-    gte?: number | IntFieldRefInput<$PrismaModel> | $Types.Skip
-    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null | $Types.Skip
-    _count?: NestedIntNullableFilter<$PrismaModel> | $Types.Skip
-    _avg?: NestedFloatNullableFilter<$PrismaModel> | $Types.Skip
-    _sum?: NestedIntNullableFilter<$PrismaModel> | $Types.Skip
-    _min?: NestedIntNullableFilter<$PrismaModel> | $Types.Skip
-    _max?: NestedIntNullableFilter<$PrismaModel> | $Types.Skip
   }
 
   export type CustomerScalarRelationFilter = {
@@ -16497,6 +16497,14 @@ export namespace Prisma {
     deleteMany?: CustomerScalarWhereInput | CustomerScalarWhereInput[] | $Types.Skip
   }
 
+  export type NullableIntFieldUpdateOperationsInput = {
+    set?: number | null | $Types.Skip
+    increment?: number | $Types.Skip
+    decrement?: number | $Types.Skip
+    multiply?: number | $Types.Skip
+    divide?: number | $Types.Skip
+  }
+
   export type ImageUncheckedUpdateManyWithoutClassifiedNestedInput = {
     create?: XOR<ImageCreateWithoutClassifiedInput, ImageUncheckedCreateWithoutClassifiedInput> | ImageCreateWithoutClassifiedInput[] | ImageUncheckedCreateWithoutClassifiedInput[] | $Types.Skip
     connectOrCreate?: ImageCreateOrConnectWithoutClassifiedInput | ImageCreateOrConnectWithoutClassifiedInput[] | $Types.Skip
@@ -16579,14 +16587,6 @@ export namespace Prisma {
     update?: CustomerLifecycleUpdateWithWhereUniqueWithoutCustomerInput | CustomerLifecycleUpdateWithWhereUniqueWithoutCustomerInput[] | $Types.Skip
     updateMany?: CustomerLifecycleUpdateManyWithWhereWithoutCustomerInput | CustomerLifecycleUpdateManyWithWhereWithoutCustomerInput[] | $Types.Skip
     deleteMany?: CustomerLifecycleScalarWhereInput | CustomerLifecycleScalarWhereInput[] | $Types.Skip
-  }
-
-  export type NullableIntFieldUpdateOperationsInput = {
-    set?: number | null | $Types.Skip
-    increment?: number | $Types.Skip
-    decrement?: number | $Types.Skip
-    multiply?: number | $Types.Skip
-    divide?: number | $Types.Skip
   }
 
   export type CustomerLifecycleUncheckedUpdateManyWithoutCustomerNestedInput = {
@@ -16964,6 +16964,17 @@ export namespace Prisma {
     not?: NestedStringNullableFilter<$PrismaModel> | string | null | $Types.Skip
   }
 
+  export type NestedIntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null | $Types.Skip
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null | $Types.Skip
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null | $Types.Skip
+    lt?: number | IntFieldRefInput<$PrismaModel> | $Types.Skip
+    lte?: number | IntFieldRefInput<$PrismaModel> | $Types.Skip
+    gt?: number | IntFieldRefInput<$PrismaModel> | $Types.Skip
+    gte?: number | IntFieldRefInput<$PrismaModel> | $Types.Skip
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null | $Types.Skip
+  }
+
   export type NestedEnumULEZComplianceFilter<$PrismaModel = never> = {
     equals?: $Enums.ULEZCompliance | EnumULEZComplianceFieldRefInput<$PrismaModel> | $Types.Skip
     in?: $Enums.ULEZCompliance[] | ListEnumULEZComplianceFieldRefInput<$PrismaModel> | $Types.Skip
@@ -17092,7 +17103,7 @@ export namespace Prisma {
     _max?: NestedStringNullableFilter<$PrismaModel> | $Types.Skip
   }
 
-  export type NestedIntNullableFilter<$PrismaModel = never> = {
+  export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel> | null | $Types.Skip
     in?: number[] | ListIntFieldRefInput<$PrismaModel> | null | $Types.Skip
     notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null | $Types.Skip
@@ -17100,7 +17111,23 @@ export namespace Prisma {
     lte?: number | IntFieldRefInput<$PrismaModel> | $Types.Skip
     gt?: number | IntFieldRefInput<$PrismaModel> | $Types.Skip
     gte?: number | IntFieldRefInput<$PrismaModel> | $Types.Skip
-    not?: NestedIntNullableFilter<$PrismaModel> | number | null | $Types.Skip
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null | $Types.Skip
+    _count?: NestedIntNullableFilter<$PrismaModel> | $Types.Skip
+    _avg?: NestedFloatNullableFilter<$PrismaModel> | $Types.Skip
+    _sum?: NestedIntNullableFilter<$PrismaModel> | $Types.Skip
+    _min?: NestedIntNullableFilter<$PrismaModel> | $Types.Skip
+    _max?: NestedIntNullableFilter<$PrismaModel> | $Types.Skip
+  }
+
+  export type NestedFloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null | $Types.Skip
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null | $Types.Skip
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null | $Types.Skip
+    lt?: number | FloatFieldRefInput<$PrismaModel> | $Types.Skip
+    lte?: number | FloatFieldRefInput<$PrismaModel> | $Types.Skip
+    gt?: number | FloatFieldRefInput<$PrismaModel> | $Types.Skip
+    gte?: number | FloatFieldRefInput<$PrismaModel> | $Types.Skip
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null | $Types.Skip
   }
 
   export type NestedEnumULEZComplianceWithAggregatesFilter<$PrismaModel = never> = {
@@ -17250,33 +17277,6 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel> | $Types.Skip
     _min?: NestedEnumCustomerStatusFilter<$PrismaModel> | $Types.Skip
     _max?: NestedEnumCustomerStatusFilter<$PrismaModel> | $Types.Skip
-  }
-
-  export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null | $Types.Skip
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null | $Types.Skip
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null | $Types.Skip
-    lt?: number | IntFieldRefInput<$PrismaModel> | $Types.Skip
-    lte?: number | IntFieldRefInput<$PrismaModel> | $Types.Skip
-    gt?: number | IntFieldRefInput<$PrismaModel> | $Types.Skip
-    gte?: number | IntFieldRefInput<$PrismaModel> | $Types.Skip
-    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null | $Types.Skip
-    _count?: NestedIntNullableFilter<$PrismaModel> | $Types.Skip
-    _avg?: NestedFloatNullableFilter<$PrismaModel> | $Types.Skip
-    _sum?: NestedIntNullableFilter<$PrismaModel> | $Types.Skip
-    _min?: NestedIntNullableFilter<$PrismaModel> | $Types.Skip
-    _max?: NestedIntNullableFilter<$PrismaModel> | $Types.Skip
-  }
-
-  export type NestedFloatNullableFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel> | null | $Types.Skip
-    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null | $Types.Skip
-    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null | $Types.Skip
-    lt?: number | FloatFieldRefInput<$PrismaModel> | $Types.Skip
-    lte?: number | FloatFieldRefInput<$PrismaModel> | $Types.Skip
-    gt?: number | FloatFieldRefInput<$PrismaModel> | $Types.Skip
-    gte?: number | FloatFieldRefInput<$PrismaModel> | $Types.Skip
-    not?: NestedFloatNullableFilter<$PrismaModel> | number | null | $Types.Skip
   }
 
   export type MakeCreateWithoutClassifiedsInput = {
@@ -17597,7 +17597,7 @@ export namespace Prisma {
     price?: number | $Types.Skip
     makeId: number
     modelId: number
-    modelVariantId: number
+    modelVariantId?: number | null | $Types.Skip
     ulezCompliance?: $Enums.ULEZCompliance | $Types.Skip
     transmission?: $Enums.Transmission | $Types.Skip
     colour?: $Enums.Colour | $Types.Skip
@@ -17693,7 +17693,7 @@ export namespace Prisma {
     price?: IntFieldUpdateOperationsInput | number | $Types.Skip
     makeId?: IntFieldUpdateOperationsInput | number | $Types.Skip
     modelId?: IntFieldUpdateOperationsInput | number | $Types.Skip
-    modelVariantId?: IntFieldUpdateOperationsInput | number | $Types.Skip
+    modelVariantId?: NullableIntFieldUpdateOperationsInput | number | null | $Types.Skip
     ulezCompliance?: EnumULEZComplianceFieldUpdateOperationsInput | $Enums.ULEZCompliance | $Types.Skip
     transmission?: EnumTransmissionFieldUpdateOperationsInput | $Enums.Transmission | $Types.Skip
     colour?: EnumColourFieldUpdateOperationsInput | $Enums.Colour | $Types.Skip
@@ -17846,7 +17846,7 @@ export namespace Prisma {
     price?: number | $Types.Skip
     makeId: number
     modelId: number
-    modelVariantId: number
+    modelVariantId?: number | null | $Types.Skip
     ulezCompliance?: $Enums.ULEZCompliance | $Types.Skip
     transmission?: $Enums.Transmission | $Types.Skip
     colour?: $Enums.Colour | $Types.Skip
@@ -17917,7 +17917,7 @@ export namespace Prisma {
     price?: IntFieldUpdateOperationsInput | number | $Types.Skip
     makeId?: IntFieldUpdateOperationsInput | number | $Types.Skip
     modelId?: IntFieldUpdateOperationsInput | number | $Types.Skip
-    modelVariantId?: IntFieldUpdateOperationsInput | number | $Types.Skip
+    modelVariantId?: NullableIntFieldUpdateOperationsInput | number | null | $Types.Skip
     ulezCompliance?: EnumULEZComplianceFieldUpdateOperationsInput | $Enums.ULEZCompliance | $Types.Skip
     transmission?: EnumTransmissionFieldUpdateOperationsInput | $Enums.Transmission | $Types.Skip
     colour?: EnumColourFieldUpdateOperationsInput | $Enums.Colour | $Types.Skip
@@ -18046,7 +18046,7 @@ export namespace Prisma {
     seats?: number | $Types.Skip
     price?: number | $Types.Skip
     modelId: number
-    modelVariantId: number
+    modelVariantId?: number | null | $Types.Skip
     ulezCompliance?: $Enums.ULEZCompliance | $Types.Skip
     transmission?: $Enums.Transmission | $Types.Skip
     colour?: $Enums.Colour | $Types.Skip
@@ -18131,7 +18131,7 @@ export namespace Prisma {
     price?: IntFilter<"Classified"> | number | $Types.Skip
     makeId?: IntFilter<"Classified"> | number | $Types.Skip
     modelId?: IntFilter<"Classified"> | number | $Types.Skip
-    modelVariantId?: IntFilter<"Classified"> | number | $Types.Skip
+    modelVariantId?: IntNullableFilter<"Classified"> | number | null | $Types.Skip
     ulezCompliance?: EnumULEZComplianceFilter<"Classified"> | $Enums.ULEZCompliance | $Types.Skip
     transmission?: EnumTransmissionFilter<"Classified"> | $Enums.Transmission | $Types.Skip
     colour?: EnumColourFilter<"Classified"> | $Enums.Colour | $Types.Skip
@@ -18235,7 +18235,7 @@ export namespace Prisma {
     seats?: number | $Types.Skip
     price?: number | $Types.Skip
     makeId: number
-    modelVariantId: number
+    modelVariantId?: number | null | $Types.Skip
     ulezCompliance?: $Enums.ULEZCompliance | $Types.Skip
     transmission?: $Enums.Transmission | $Types.Skip
     colour?: $Enums.Colour | $Types.Skip
@@ -18650,7 +18650,7 @@ export namespace Prisma {
     seats?: number | $Types.Skip
     price?: number | $Types.Skip
     modelId: number
-    modelVariantId: number
+    modelVariantId?: number | null | $Types.Skip
     ulezCompliance?: $Enums.ULEZCompliance | $Types.Skip
     transmission?: $Enums.Transmission | $Types.Skip
     colour?: $Enums.Colour | $Types.Skip
@@ -18727,7 +18727,7 @@ export namespace Prisma {
     seats?: IntFieldUpdateOperationsInput | number | $Types.Skip
     price?: IntFieldUpdateOperationsInput | number | $Types.Skip
     modelId?: IntFieldUpdateOperationsInput | number | $Types.Skip
-    modelVariantId?: IntFieldUpdateOperationsInput | number | $Types.Skip
+    modelVariantId?: NullableIntFieldUpdateOperationsInput | number | null | $Types.Skip
     ulezCompliance?: EnumULEZComplianceFieldUpdateOperationsInput | $Enums.ULEZCompliance | $Types.Skip
     transmission?: EnumTransmissionFieldUpdateOperationsInput | $Enums.Transmission | $Types.Skip
     colour?: EnumColourFieldUpdateOperationsInput | $Enums.Colour | $Types.Skip
@@ -18755,7 +18755,7 @@ export namespace Prisma {
     seats?: IntFieldUpdateOperationsInput | number | $Types.Skip
     price?: IntFieldUpdateOperationsInput | number | $Types.Skip
     modelId?: IntFieldUpdateOperationsInput | number | $Types.Skip
-    modelVariantId?: IntFieldUpdateOperationsInput | number | $Types.Skip
+    modelVariantId?: NullableIntFieldUpdateOperationsInput | number | null | $Types.Skip
     ulezCompliance?: EnumULEZComplianceFieldUpdateOperationsInput | $Enums.ULEZCompliance | $Types.Skip
     transmission?: EnumTransmissionFieldUpdateOperationsInput | $Enums.Transmission | $Types.Skip
     colour?: EnumColourFieldUpdateOperationsInput | $Enums.Colour | $Types.Skip
@@ -18790,7 +18790,7 @@ export namespace Prisma {
     seats?: number | $Types.Skip
     price?: number | $Types.Skip
     makeId: number
-    modelVariantId: number
+    modelVariantId?: number | null | $Types.Skip
     ulezCompliance?: $Enums.ULEZCompliance | $Types.Skip
     transmission?: $Enums.Transmission | $Types.Skip
     colour?: $Enums.Colour | $Types.Skip
@@ -18871,7 +18871,7 @@ export namespace Prisma {
     seats?: IntFieldUpdateOperationsInput | number | $Types.Skip
     price?: IntFieldUpdateOperationsInput | number | $Types.Skip
     makeId?: IntFieldUpdateOperationsInput | number | $Types.Skip
-    modelVariantId?: IntFieldUpdateOperationsInput | number | $Types.Skip
+    modelVariantId?: NullableIntFieldUpdateOperationsInput | number | null | $Types.Skip
     ulezCompliance?: EnumULEZComplianceFieldUpdateOperationsInput | $Enums.ULEZCompliance | $Types.Skip
     transmission?: EnumTransmissionFieldUpdateOperationsInput | $Enums.Transmission | $Types.Skip
     colour?: EnumColourFieldUpdateOperationsInput | $Enums.Colour | $Types.Skip
@@ -18899,7 +18899,7 @@ export namespace Prisma {
     seats?: IntFieldUpdateOperationsInput | number | $Types.Skip
     price?: IntFieldUpdateOperationsInput | number | $Types.Skip
     makeId?: IntFieldUpdateOperationsInput | number | $Types.Skip
-    modelVariantId?: IntFieldUpdateOperationsInput | number | $Types.Skip
+    modelVariantId?: NullableIntFieldUpdateOperationsInput | number | null | $Types.Skip
     ulezCompliance?: EnumULEZComplianceFieldUpdateOperationsInput | $Enums.ULEZCompliance | $Types.Skip
     transmission?: EnumTransmissionFieldUpdateOperationsInput | $Enums.Transmission | $Types.Skip
     colour?: EnumColourFieldUpdateOperationsInput | $Enums.Colour | $Types.Skip

@@ -38,7 +38,6 @@ export async function seedTaxonomy(prisma: PrismaClient) {
       });
   });
 
-  console.log(rows);
 
   type MakeModelMap = {
     [make: string]: {
