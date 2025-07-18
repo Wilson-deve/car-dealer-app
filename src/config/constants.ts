@@ -1,8 +1,4 @@
 export const imageSources = {
   classifiedPlaceholder:
-    "https://majestic-motors.s3.eu-west-2.amazonaws.com/uploads/classified-placeholder.jpeg",
-  carLinup:
-    "https://majestic-motors.s3.eu-west-2.amazonaws.com/uploads/car-lineup.jpeg",
-  featureSection:
-    "https://majestic-motors.s3.eu-west-2.amazonaws.com/uploads/feature-section.jpg",
+    "https://res.cloudinary.com/dkzp1qf68/image/upload/v1752771563/AdobeStock_855683950_stlwvv.jpg",
 };

@@ -9,9 +9,9 @@ import {
   PrismaClient,
   Transmission,
   ULEZCompliance,
-} from "../src/generated/prisma";
+} from "../../src/generated/prisma";
 import slugify from "slugify";
-import { CurrencyCode } from "../src/generated/prisma";
+import { CurrencyCode } from "../../src/generated/prisma";
 
 export async function seedClassifieds(prisma: PrismaClient) {
   const makes = await prisma.make.findMany({

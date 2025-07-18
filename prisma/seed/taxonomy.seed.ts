@@ -1,4 +1,4 @@
-import type { Prisma, PrismaClient } from "../src/generated/prisma";
+import type { Prisma, PrismaClient } from "../../src/generated/prisma";
 import { parse } from "csv";
 import fs from "node:fs";
 
